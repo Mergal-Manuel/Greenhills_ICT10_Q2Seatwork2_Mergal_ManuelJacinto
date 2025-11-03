@@ -10,7 +10,7 @@ def get_grades(e):
     document.getElementById('outputFilo').innerHTML = "   "
     document.getElementById('outputPE').innerHTML = "   "
     document.getElementById('outputGradeAve').innerHTML = "   "
-    
+
     name = document.getElementById('name').value
     section = document.getElementById('sect').value
 
@@ -25,8 +25,17 @@ def get_grades(e):
     filo = int(document.getElementById('Filo').value)
     pe = int(document.getElementById('PE').value)
     
+    Subjects = [math, sci, eng, ict, filo, pe]
+    Units = (5, 5, 5, 2, 3, 1)
 
-    gen_ave = int((math + sci + eng + ict + filo + pe)/6)
+    mathFinal = Subjects[0] * Units[0]
+    sciFinal = Subjects[1] * Units[1]
+    engFinal = Subjects[2] * Units[2]
+    ictFinal = Subjects[3] * Units[3]
+    filoFinal = Subjects[4] * Units[4]
+    peFinal = Subjects[5] * Units[5]
+
+    gen_ave = (mathFinal + sciFinal + engFinal + ictFinal + filoFinal + peFinal)/21
 
     display(f'Math: {math}', target ='outputMath')
     display(f'Science: {sci}', target ='outputSci')
@@ -34,5 +43,5 @@ def get_grades(e):
     display(f'ICT: {ict}', target ='outputICT')
     display(f'Filipino: {filo}', target ='outputFilo')
     display(f'PE: {pe}', target ='outputPE')
-    display(f'General Average: {gen_ave}', target='outputGradeAve')
+    display(f'General Average: {gen_ave:.2f}', target='outputGradeAve')
 
